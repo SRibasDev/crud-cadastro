@@ -17,7 +17,6 @@ public class UsuarioController {
         this.usuarioRepository = usuarioRepository;
     }
 
-    // C - CREATE (Criar)
     // Rota: POST http://localhost:8080/usuarios
     @PostMapping
     public ResponseEntity<UsuarioModel> criarUsuario(@RequestBody UsuarioModel usuario) {
