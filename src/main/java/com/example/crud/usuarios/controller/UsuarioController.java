@@ -25,14 +25,12 @@ public class UsuarioController {
         return ResponseEntity.status(201).body(novoUsuario);
     }
 
-    // R - READ (Ler/Listar Todos)
     // Rota: GET http://localhost:8080/usuarios
     @GetMapping
     public List<UsuarioModel> listarTodos() {
         return usuarioRepository.findAll(); // Busca todos os registros
     }
 
-    // R - READ (Ler/Buscar por ID)
     // Rota: GET http://localhost:8080/usuarios/{id}
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioModel> buscarPorId(@PathVariable Long id) {
@@ -45,7 +43,6 @@ public class UsuarioController {
         }
     }
 
-    // U - UPDATE (Atualizar)
     // Rota: PUT http://localhost:8080/usuarios/{id}
     @PutMapping("/{id}")
     public ResponseEntity<UsuarioModel> atualizarUsuario(@PathVariable Long id, @RequestBody UsuarioModel detalhesUsuario) {
@@ -59,7 +56,6 @@ public class UsuarioController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // D - DELETE (Deletar)
     // Rota: DELETE http://localhost:8080/usuarios/{id}
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarUsuario(@PathVariable Long id) {
