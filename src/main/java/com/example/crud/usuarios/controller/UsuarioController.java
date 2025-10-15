@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
@@ -17,7 +18,7 @@ public class UsuarioController {
         this.usuarioRepository = usuarioRepository;
     }
 
-    // Rota: POST http://localhost:8080/usuarios
+//  http://localhost:8080/usuarios
     @PostMapping
     public ResponseEntity<UsuarioModel> criarUsuario(@RequestBody UsuarioModel usuario) {
         UsuarioModel novoUsuario = usuarioRepository.save(usuario);
@@ -25,13 +26,13 @@ public class UsuarioController {
         return ResponseEntity.status(201).body(novoUsuario);
     }
 
-    // Rota: GET http://localhost:8080/usuarios
+//    http://localhost:8080/usuarios
     @GetMapping
     public List<UsuarioModel> listarTodos() {
         return usuarioRepository.findAll(); // Busca todos os registros
     }
 
-    // Rota: GET http://localhost:8080/usuarios/{id}
+//     http://localhost:8080/usuarios/{id}
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioModel> buscarPorId(@PathVariable Long id) {
         Optional<UsuarioModel> usuario = usuarioRepository.findById(id);
@@ -43,7 +44,7 @@ public class UsuarioController {
         }
     }
 
-    // Rota: PUT http://localhost:8080/usuarios/{id}
+//    http://localhost:8080/usuarios/{id}
     @PutMapping("/{id}")
     public ResponseEntity<UsuarioModel> atualizarUsuario(@PathVariable Long id, @RequestBody UsuarioModel detalhesUsuario) {
         return usuarioRepository.findById(id)
@@ -56,7 +57,7 @@ public class UsuarioController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Rota: DELETE http://localhost:8080/usuarios/{id}
+//   http://localhost:8080/usuarios/{id}
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarUsuario(@PathVariable Long id) {
         if (usuarioRepository.existsById(id)) {
