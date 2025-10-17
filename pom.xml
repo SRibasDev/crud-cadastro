@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>crud.usuarios</artifactId>
+	<artifactId>crud_cadastro</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>crud.usuarios</name>
 	<description>Demo project for Spring Boot</description>
@@ -44,7 +44,7 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-        <dependency>
+        <dependency>git
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>

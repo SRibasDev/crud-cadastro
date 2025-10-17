@@ -14,7 +14,7 @@ public class UsuarioModel {
     private String nome;
     private String email;
     private int idade;
-    private int telefone;
+    private Long telefone;
 
 
     // Construtor vazio (obrigatório para o JPA)
@@ -29,9 +29,9 @@ public class UsuarioModel {
 
     public String getNome() { return nome; }
 
-    public int getTelefone() { return telefone; }
+    public Long getTelefone() { return telefone; }
 
-    public void setTelefone(int telefone) { this.telefone = telefone; }
+    public void setTelefone(Long telefone) { this.telefone = telefone; }
 
     public String getEmail() {
         return email;
