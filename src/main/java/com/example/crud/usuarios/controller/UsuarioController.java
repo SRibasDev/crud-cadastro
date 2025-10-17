@@ -18,7 +18,7 @@ public class UsuarioController {
         this.usuarioRepository = usuarioRepository;
     }
 
-//  http://localhost:8080/usuarios
+//  localhost:8080/usuarios
     @PostMapping
     public ResponseEntity<UsuarioModel> criarUsuario(@RequestBody UsuarioModel usuario) {
         UsuarioModel novoUsuario = usuarioRepository.save(usuario);
@@ -32,7 +32,7 @@ public class UsuarioController {
         return usuarioRepository.findAll(); // Busca todos os registros
     }
 
-//     http://localhost:8080/usuarios/{id}
+//  localhost:8080/usuarios/id
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioModel> buscarPorId(@PathVariable Long id) {
         Optional<UsuarioModel> usuario = usuarioRepository.findById(id);
@@ -44,7 +44,7 @@ public class UsuarioController {
         }
     }
 
-//    http://localhost:8080/usuarios/{id}
+//  localhost:8080/usuarios/id
     @PutMapping("/{id}")
     public ResponseEntity<UsuarioModel> atualizarUsuario(@PathVariable Long id, @RequestBody UsuarioModel detalhesUsuario) {
         return usuarioRepository.findById(id)
